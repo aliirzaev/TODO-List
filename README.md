@@ -1,2 +1,2 @@
 # TODO-List
-**By this script, you can reorganise your ideas**
+> This script uses for make algoritm-list
