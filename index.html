@@ -3,11 +3,16 @@
     <head>
       <h1>TODO list Demo App</h1>
       <p>Do it now</p>
+      <link rel="stylesheet" href="style.css">
     </head>
     <main>
       <button class="add_task_button">Add Task</button>
+      <div class="NewTask">
+        <input class="name_inp"></input>
+        <p class="apply_button">Apply</p>
+      </div>
       <table>
-        <tr>
+        <tr class="variables">
           <td class="task_id">Id</td>
           <td class="task_name">Task Name</td>
           <td class="task_status">Status</td>
@@ -52,6 +57,6 @@
       </table>
     </main>
 
-    <script src="/main.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
