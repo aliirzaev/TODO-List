@@ -11,11 +11,11 @@ body {
     color: white;
 
     font-family: "Dancing Script", cursive;
+    text-shadow: 1px 1px 1px #351f68;
 }
 
 p {
     font-size: xx-large;
-    text-shadow: 1px 1px 1px #351f68;
 }
 
 .add_task_button {
