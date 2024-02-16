@@ -1,3 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
 .NewTask {
     display: none;
+}
+
+body {
+    background-color: #5F00BD;
+    background-image: url("src/linear-background.jpg");
+    background-size: cover;
+    color: white;
+
+    font-family: "Dancing Script", cursive;
+}
+
+p {
+    font-size: xx-large;
+}
+
+.add_task_button {
+    background-color: rgb(164, 228, 196);
+    border: 10px double white;
+    border-radius: 10px;
+    text-align: center;
+    width: 150px;
+    
+    margin-left: auto;
+}
+
+.variables {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgb(233, 203, 146);
+
+    border: 10px double white;
+    border-radius: 20px;
+
 }

@@ -5,4 +5,4 @@ let task_status = document.querySelector(".task_status")
 
 let NewTask_frame = document.querySelector(".NewTask")
 let apply_button = document.querySelector(".apply_button")
-let name_inp = document.querySelector(".name_inp")
+let name_input = document.querySelector(".name_inp")
