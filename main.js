@@ -3,6 +3,6 @@ let task_id = document.querySelector(".task_id")
 let task_name = document.querySelector(".task_name")
 let task_status = document.querySelector(".task_status")
 
-let NewTask_frame = document.querySelector(".NewTask")
+let newTask_frame = document.querySelector(".NewTask")
 let apply_button = document.querySelector(".apply_button")
 let name_input = document.querySelector(".name_inp")
