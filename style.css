@@ -32,7 +32,8 @@ p {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-color: rgb(233, 203, 146);
+    background-color: rgb(62, 4, 100);
+    background-image: url("src/background.jpg");
 
     border: 10px double white;
     border-radius: 20px;
