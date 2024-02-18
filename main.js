@@ -15,6 +15,8 @@ function createTask(name) {
     newTemp.style.display = "flex"
 
     let remove_button = newTemp.querySelector(".template_button_remove")
+    let edit_button = newTemp.querySelector(".template_button_edit")
+
     remove_button.addEventListener("click", () => {
         newTemp.remove(true)
     })
