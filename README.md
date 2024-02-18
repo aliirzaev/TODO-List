@@ -1,2 +1,4 @@
 # TODO-List
-> This script uses for make algoritm-list
+> Никита делает .html
+> Степа делает .css
+> Мак делает .js
