@@ -1,4 +1,2 @@
 # TODO-List
-> Никита делает .html\
-> Степа делает .css\
-> Мак делает .js
+- ***application***, that helps you to reorganize your plans to there
