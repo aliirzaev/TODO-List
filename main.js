@@ -15,6 +15,9 @@ function createTask(name) {
     list.append(newTemp)
     newTemp.style.display = "flex"
 
+
+
+    // Button functions
     let remove_button = newTemp.querySelector(".template_button_remove")
     let edit_button = newTemp.querySelector(".template_button_edit")
 
