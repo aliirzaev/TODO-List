@@ -18,8 +18,6 @@ function createTask(name) {
 
 
     // Button functions
-    let remove_button = newTemp.querySelector(".template_button_remove")
-    let edit_button = newTemp.querySelector(".template_button_edit")
 
     remove_button.addEventListener("click", () => {
         newTemp.remove(true)
@@ -38,7 +36,7 @@ function createTask(name) {
 
 add_task_button.addEventListener("click", () => {
     if (name_input.value != "") {
-        createTask(name_input.value)
+        createTask(list.childNodes.length + 1, name_input.value, "In order")
         name_input.value = ""
     }
 })
