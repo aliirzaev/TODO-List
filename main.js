@@ -5,21 +5,64 @@ let task_add = document.querySelector(".task_add")
 let name_input = document.querySelector(".name_input")
 let add_task_button = document.querySelector(".add_task_button")
 
-function createTask(name) {
+function loadData() {
+    let items = localStorage.getItem("TODOs")
+    if (items) {
+        items = JSON.parse(items)
+
+        for (let i = 1; i < Object.keys(items).length + 1; i++) {
+            let currentItem = items[i]
+            createTask(i, currentItem.name, currentItem.status, false)
+            console.log(currentItem)
+        }
+    }
+}
+
+function saveData(id, name, status) {
+    let items = localStorage.getItem("TODOs")
+    if (items) {
+        items = JSON.parse(items)
+        items[id] = {name: name, status: status}
+        items = JSON.stringify(items)
+        localStorage.setItem("TODOs", items)
+    } else {
+        localStorage.setItem("TODOs", JSON.stringify({1: {name: name, status: status}}))
+    }
+}
+
+function createTask(id, name_, status_, savable) {
     let newTemp = template_list.cloneNode(true)
-    newTemp.querySelector(".template_name").innerHTML = name
     let status = newTemp.querySelector(".template_status")
-    status.innerHTML = "In order"
-    newTemp.querySelector(".template_id").innerHTML = "#" + (list.childNodes.length + 1)
+    let remove_button = newTemp.querySelector(".template_button_remove")
+    let edit_button = newTemp.querySelector(".template_button_edit")
+
+    newTemp.querySelector(".template_name").innerHTML = name_
+    status.innerHTML = status_
+    newTemp.querySelector(".template_id").innerHTML = "#" + id
     
     list.append(newTemp)
     newTemp.style.display = "flex"
 
-
+    if (savable) {
+        saveData(id, name_, status_)
+    }
 
     // Button functions
 
     remove_button.addEventListener("click", () => {
+        let items = localStorage.getItem("TODOs")
+        items = JSON.parse(items)
+        
+        let nextItem = items[id + 1]
+
+        delete items[id]
+        delete items[id + 1]
+
+        
+        items[id] = nextItem
+        
+        localStorage.setItem("TODOs", JSON.stringify(items))
+
         newTemp.remove(true)
     })
 
@@ -31,12 +74,21 @@ function createTask(name) {
         } else if (status.innerHTML == "Completed") {
             status.innerHTML = "In order"
         }
+
+        let items = localStorage.getItem("TODOs")
+        items = JSON.parse(items)
+        items[id].status = status.innerHTML
+
+        localStorage.setItem("TODOs", JSON.stringify(items))
     })
 }
 
+loadData()
+
+
 add_task_button.addEventListener("click", () => {
     if (name_input.value != "") {
-        createTask(list.childNodes.length + 1, name_input.value, "In order")
+        createTask(list.childNodes.length + 1, name_input.value, "In order", true)
         name_input.value = ""
     }
 })
