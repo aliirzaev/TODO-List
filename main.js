@@ -9,11 +9,11 @@ function loadData() {
     let items = localStorage.getItem("TODOs")
     if (items) {
         items = JSON.parse(items)
+        list.innerHTML = ""
 
         for (let i = 1; i < Object.keys(items).length + 1; i++) {
             let currentItem = items[i]
             createTask(i, currentItem.name, currentItem.status, false)
-            console.log(currentItem)
         }
     }
 }
@@ -47,23 +47,24 @@ function createTask(id, name_, status_, savable) {
         saveData(id, name_, status_)
     }
 
-    // Button functions
-
     remove_button.addEventListener("click", () => {
         let items = localStorage.getItem("TODOs")
         items = JSON.parse(items)
-        
-        let nextItem = items[id + 1]
 
-        delete items[id]
-        delete items[id + 1]
+        newTemp.remove(true)
 
-        
-        items[id] = nextItem
+        for (let i = id; i < Object.keys(items).length + 1; i++) {
+            let nextItem = items[i + 1]
+
+            delete items[i]
+            delete items[i + 1]
+
+            items[i] = nextItem
+        }
         
         localStorage.setItem("TODOs", JSON.stringify(items))
 
-        newTemp.remove(true)
+        loadData()
     })
 
     edit_button.addEventListener("click", () => {
@@ -84,7 +85,6 @@ function createTask(id, name_, status_, savable) {
 }
 
 loadData()
-
 
 add_task_button.addEventListener("click", () => {
     if (name_input.value != "") {
